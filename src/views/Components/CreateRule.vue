@@ -1,8 +1,10 @@
 <template>
   <div class="">
     <span class="rule-title">Rules</span>
-    <div class="d-flex justify-content-end">
-      <b-badge class="text-primary" style="background: #00f0ff1a">Add </b-badge>
+    <div class="d-flex justify-content-end align-items-center">
+      <b-badge class="text-primary" style="background: #00f0ff1a">
+        <feather-icon icon="PlusIcon" style="" /> Add
+      </b-badge>
     </div>
     <div class="mt-2 p-2" style="border: 1px dashed grey; border-radius: 5px">
       <span class="rule-sub">sds</span>

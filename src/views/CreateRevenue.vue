@@ -12,7 +12,7 @@
           <b-form-textarea
             v-model="revenueGroup.desc"
             maxLength="200"
-            rows="3"
+            rows="6"
             class="w-100"
             @input="countChar"
           />

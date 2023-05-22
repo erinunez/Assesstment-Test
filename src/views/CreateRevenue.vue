@@ -1,10 +1,17 @@
 <template>
   <div class="d-flex flex-wrap p-1">
-    <div class="p-3 w-100" style="border: 1px solid grey; border-radius: 5px">
+    <div
+      class="p-3 w-100"
+      style="border: 1px solid lightgray; border-radius: 5px"
+    >
       <span class="h4 d-flex mb-5">Create Revenue Group</span>
       <div class="d-flex flex-wrap">
         <label class="">Group Name</label>
-        <b-form-input v-model="revenueGroup.name" class="w-100" />
+        <b-form-input
+          v-model="revenueGroup.name"
+          placeholder="Name"
+          class="w-100"
+        />
       </div>
       <div class="d-flex flex-wrap mt-2">
         <label class="">Group Description</label>
@@ -13,6 +20,7 @@
             v-model="revenueGroup.desc"
             maxLength="200"
             rows="6"
+            placeholder="Description"
             class="w-100"
             @input="countChar"
           />

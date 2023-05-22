@@ -24,7 +24,7 @@
               <b-badge
                 variant="primary"
                 class="p-1 ml-2"
-                style="color: white; border-radius: 50px"
+                style="color: white; border-radius: 50px; cursor: pointer"
                 @click="newRule()"
               >
                 <span class="m-1" v-if="dataRevenue.special === true">
@@ -32,7 +32,7 @@
                 </span>
               </b-badge>
             </div>
-            <div class="" @click="deleteRevenue(index)">
+            <div style="cursor: pointer" class="" @click="deleteRevenue(index)">
               <img
                 src="@/assets/Iconsdelete.svg"
                 class="p-1"
@@ -41,6 +41,7 @@
               <!-- <feather-icon icon="PlusIcon" style="" /> -->
             </div>
           </div>
+          <span class="d-flex ml-3">{{ dataRevenue.desc }}</span>
           <b-table
             style="color: white"
             :items="dataRevenue.rule"
@@ -49,6 +50,7 @@
             selected-variant="primary"
             :responsive="true"
             hover
+            class="mt-4"
             show-empty
           >
             <template #cell(rule)="data">
@@ -76,7 +78,10 @@
               }}</span>
             </template>
             <template #cell(action)="data">
-              <div @click="deleteRule(index, data.index)">
+              <div
+                style="cursor: pointer"
+                @click="deleteRule(index, data.index)"
+              >
                 <i class="fa-solid fa-trash" style="color: #8a8e99"></i>
               </div>
             </template>

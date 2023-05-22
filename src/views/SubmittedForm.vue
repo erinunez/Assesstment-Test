@@ -24,8 +24,7 @@
               <b-badge
                 variant="primary"
                 class="p-1 ml-2"
-                style="color: white; border-radius: 50px; cursor: pointer"
-                @click="newRule()"
+                style="color: white; border-radius: 50px"
               >
                 <span class="m-1" v-if="dataRevenue.special === true">
                   Special Group

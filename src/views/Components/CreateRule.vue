@@ -1,13 +1,18 @@
 <template>
   <div class="" style="height: 40vh; overflow: auto">
     <span class="rule-title">Rules</span>
-    <div class="d-flex justify-content-end align-items-center">
+    <div class="d-flex justify-content-end">
       <b-badge
-        class="text-primary"
-        style="background: #00f0ff1a; cursor: pointer"
+        class="text-primary d-flex flex-wrap align-items-center"
+        variant="primary"
+        style="
+          border-radius: 50px;
+          background: rgba(0, 150, 255, 0.4);
+          cursor: pointer;
+        "
         @click="newRule()"
       >
-        <feather-icon icon="PlusIcon" style="" /> Add
+        <feather-icon icon="PlusIcon" style="margin-right: 5px" /> Add
       </b-badge>
     </div>
     <div
@@ -21,10 +26,15 @@
         style="cursor: pointer"
       >
         <span class="rule-sub">Rule {{ idx + 1 }}</span>
-        <feather-icon icon="XIcon" style="" @click="deleteRule(idx)" />
+        <feather-icon
+          size="20"
+          icon="XIcon"
+          style=""
+          @click="deleteRule(idx)"
+        />
       </div>
       <div
-        class="d-flex flex-wrap p-2"
+        class="d-flex flex-wrap p-2 mt-2"
         style="background: #e0e0e0; border-radius: 5px; height: 100%"
       >
         <span class="d-flex align-items-center" style="height: 33px">If</span>

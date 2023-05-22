@@ -69,19 +69,7 @@ export default {
         name: "",
         desc: "",
         special: false,
-        rule: [
-          {
-            field: "",
-            operator: "",
-            parameter: [
-              {
-                name: "",
-                currIcon: "PlusCircleIcon",
-              },
-            ],
-            amountRev: "",
-          },
-        ],
+        rule: [],
       },
       currDescChar: 0,
       revenueList: [],

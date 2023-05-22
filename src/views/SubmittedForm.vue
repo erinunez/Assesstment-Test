@@ -41,7 +41,9 @@
               <!-- <feather-icon icon="PlusIcon" style="" /> -->
             </div>
           </div>
-          <span class="d-flex ml-3">{{ dataRevenue.desc }}</span>
+          <span class="d-flex ml-3 mr-3" style="text-align: justify">{{
+            dataRevenue.desc
+          }}</span>
           <b-table
             style="color: white"
             :items="dataRevenue.rule"

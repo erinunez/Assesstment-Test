@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="p-2 d-flex flex-wrap justify-content-between">
-      <CreateRevenue @newRevenue="revenue" style="width: 40%" />
-      <SubmitTable :revenueList="revenueGroup" style="width: 58%" />
+      <CreateRevenue @newRevenue="revenue" style="width: 45%" />
+      <SubmitTable :revenueList="revenueGroup" style="width: 53%" />
     </div>
   </div>
 </template>

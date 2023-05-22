@@ -28,7 +28,7 @@
       <div class="w-100 mt-4">
         <CreateRule :rules="revenueGroup.rule" />
       </div>
-      <div class="w-100 mt-3 d-flex justify-content-end">
+      <div class="w-100 mt-2 d-flex justify-content-end">
         <b-button
           variant="outline-secondary"
           style="color: #000"

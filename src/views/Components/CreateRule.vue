@@ -1,10 +1,10 @@
 <template>
-  <div class="">
+  <div class="" style="height: 40vh; overflow: auto">
     <span class="rule-title">Rules</span>
     <div class="d-flex justify-content-end align-items-center">
       <b-badge
         class="text-primary"
-        style="background: #00f0ff1a"
+        style="background: #00f0ff1a; cursor: pointer"
         @click="newRule()"
       >
         <feather-icon icon="PlusIcon" style="" /> Add
@@ -16,7 +16,10 @@
       class="mt-3 p-2"
       style="border: 1px dashed grey; border-radius: 5px"
     >
-      <div class="d-flex flex-wrap justify-content-between align-items-center">
+      <div
+        class="d-flex flex-wrap justify-content-between align-items-center"
+        style="cursor: pointer"
+      >
         <span class="rule-sub">Rule {{ idx + 1 }}</span>
         <feather-icon icon="XIcon" style="" @click="deleteRule(idx)" />
       </div>
@@ -59,7 +62,7 @@
               class="ml-1"
               :icon="param.currIcon"
               size="20"
-              style="width: 13%"
+              style="width: 13%; cursor: pointer"
               @click="newParam(rule.parameter, id)"
             />
           </div>

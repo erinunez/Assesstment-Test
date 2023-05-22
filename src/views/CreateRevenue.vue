@@ -1,10 +1,10 @@
 <template>
-  <div class="d-flex flex-wrap justify-content-center m-5 p-5">
-    <div class="w-50 p-3" style="border: 1px solid grey; border-radius: 5px">
+  <div class="d-flex flex-wrap p-1">
+    <div class="p-3 w-100" style="border: 1px solid grey; border-radius: 5px">
       <span class="h4 d-flex mb-5">Create Revenue Group</span>
       <div class="d-flex flex-wrap">
         <label class="">Group Name</label>
-        <b-form-input class="w-100" />
+        <b-form-input v-model="revenueGroup.name" class="w-100" />
       </div>
       <div class="d-flex flex-wrap mt-2">
         <label class="">Group Description</label>
@@ -25,21 +25,33 @@
         <input v-model="revenueGroup.special" type="checkbox" />
         <span style="margin-left: 10px">Special group</span>
       </div>
-      <div class="w-100">
-        <CreateRule />
+      <div class="w-100 mt-4">
+        <CreateRule :rules="revenueGroup.rule" />
+      </div>
+      <div class="w-100 mt-3 d-flex justify-content-end">
+        <b-button
+          variant="outline-secondary"
+          style="color: #000"
+          @click="resetForm"
+          >Reset</b-button
+        >
+        <b-button @click="submitForm" class="ml-2" variant="primary"
+          >Submit</b-button
+        >
       </div>
     </div>
   </div>
 </template>
 <style></style>
 <script>
-import { BFormInput, BFormTextarea } from "bootstrap-vue";
+import { BFormInput, BFormTextarea, BButton } from "bootstrap-vue";
 import CreateRule from "@/views/Components/CreateRule.vue";
 
 export default {
   components: {
     BFormInput,
     BFormTextarea,
+    BButton,
     CreateRule,
   },
 
@@ -49,14 +61,66 @@ export default {
         name: "",
         desc: "",
         special: false,
+        rule: [
+          {
+            field: "",
+            operator: "",
+            parameter: [
+              {
+                name: "",
+                currIcon: "PlusCircleIcon",
+              },
+            ],
+            amountRev: "",
+          },
+        ],
       },
       currDescChar: 0,
+      revenueList: [],
     };
   },
-
   methods: {
     countChar() {
       this.currDescChar = this.revenueGroup.desc.length;
+    },
+    submitForm() {
+      this.revenueList.push({
+        name: this.revenueGroup.name,
+        desc: this.revenueGroup.desc,
+        special: this.revenueGroup.special,
+        rule: this.revenueGroup.rule.map((x) => ({
+          field: x.field,
+          operator: x.operator,
+          parameter: x.parameter.map((y) => ({
+            name: y.name,
+            currIcon: y.currIcon,
+          })),
+          amountRev: x.amountRev + "%",
+        })),
+      });
+      this.$emit("newRevenue", this.revenueList);
+      this.resetForm();
+    },
+    resetForm() {
+      this.revenueGroup = {
+        name: "",
+        desc: "",
+        special: false,
+        rule: [
+          {
+            field: "",
+            operator: "",
+            parameter: [
+              {
+                name: "",
+                currIcon: "PlusCircleIcon",
+              },
+            ],
+            amountRev: "",
+          },
+        ],
+      };
+      this.currDescChar = 0;
     },
   },
 };

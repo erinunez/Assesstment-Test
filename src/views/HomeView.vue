@@ -1,26 +1,34 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-
-    <div class="row">
-      <b-button variant="danger"> Notifications</b-button>
-      <b-badge variant="primary">304</b-badge>
+  <div>
+    <div class="p-2 d-flex flex-wrap justify-content-between">
+      <CreateRevenue @newRevenue="revenue" style="width: 40%" />
+      <SubmitTable :revenueList="revenueGroup" style="width: 58%" />
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-import { BButton, BBadge } from "bootstrap-vue";
+import CreateRevenue from "@/views/CreateRevenue.vue";
+import SubmitTable from "@/views/SubmittedForm.vue";
+// import { BButton, BBadge } from "bootstrap-vue";
 
 export default {
   name: "HomeView",
   components: {
-    HelloWorld,
-    BButton,
-    BBadge,
+    CreateRevenue,
+    SubmitTable,
+  },
+  data() {
+    return {
+      revenueGroup: [],
+    };
+  },
+  methods: {
+    revenue(data) {
+      console.log(data);
+      this.revenueGroup = data;
+    },
   },
 };
 </script>

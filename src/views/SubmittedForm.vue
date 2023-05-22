@@ -2,7 +2,7 @@
   <div class="p-1">
     <div class="">
       <span class="h4 d-flex mb-5">Browse Revenue Groups</span>
-      <div v-if="revenueDisplay.length === 0">No data</div>
+      <div v-if="revenueDisplay.length === 0">No data found.</div>
       <div v-for="(dataRevenue, index) in revenueDisplay" :key="index">
         <div
           class="mb-1"
